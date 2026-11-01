@@ -40,6 +40,10 @@ class Main {
             mergeSort(a, mid + 1, right);
             mergeSort(a, left, mid);
             merge(a, left, mid, right);
+            for(int i = 0; i < a.length; i++){
+                System.out.print(a[i] + " ");
+            }
+            System.out.println();
         }
     }
 
