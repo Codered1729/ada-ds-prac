@@ -6,7 +6,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.feature_selection import RFE
 
-# --- Baseline Model (Breast Cancer) ---
 ata = load_breast_cancer()
 X = pd.DataFrame(ata.data, columns=ata.feature_names)
 y = ata.target
@@ -24,7 +23,6 @@ print("Baseline Breast Cancer Performance:")
 print(f"Accuracy: {accuracy_score(y_test, y_pred) * 100:.2f}%")
 print(f"Precision: {precision_score(y_test, y_pred) * 100:.2f}%")
 
-# --- RFE Model (Breast Cancer) ---
 rfe = RFE(estimator=model, n_features_to_select=3)
 X_train_rfe = rfe.fit_transform(X_train_sc, y_train)
 X_test_rfe = rfe.transform(X_test_sc)

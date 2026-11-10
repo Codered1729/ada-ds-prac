@@ -6,7 +6,6 @@ from sklearn.decomposition import PCA
 from sklearn.metrics import mean_squared_error, r2_score
 
 try:
-    # --- Before PCA ---
     df2 = pd.read_csv("/content/sdperform.csv")
 
     std_indep = df2.drop(columns=['GradeClass', 'StudentID', 'GPA'])
@@ -28,7 +27,6 @@ try:
     print(f"Mean Squared Error: {mean_squared_error(std_dep_test, std_dep_pred):.4f}")
     print(f"R-squared: {r2_score(std_dep_test, std_dep_pred):.4f}")
 
-    # --- After PCA ---
     pca_perf = PCA(n_components=10)
     std_indep_train_pca = pca_perf.fit_transform(std_indep_train_sc)
     std_indep_test_pca = pca_perf.transform(std_indep_test_sc)

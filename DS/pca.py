@@ -1,13 +1,11 @@
 import pandas as pd
 
-# Load dataset
 df = pd.read_csv('iris-data.csv')
 
 print("Data frame head:\n", df.head())
 print("Data frame info:\n")
 print(df.info())
 
-# Encode categorical class column
 df_encoded = pd.get_dummies(
     df, columns=['class'], drop_first=True
 )
@@ -41,7 +39,6 @@ print("PCA dataframe head:\n", df_pca.head())
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Plot original data
 sns.scatterplot(
     x='Sepal length',
     y='Sepal width',
@@ -54,7 +51,6 @@ plt.xlabel('Sepal length (cm)')
 plt.ylabel('Sepal width (cm)')
 plt.show()
 
-# Plot PCA-transformed data
 sns.scatterplot(
     x='principal component-1',
     y='principal component-2',

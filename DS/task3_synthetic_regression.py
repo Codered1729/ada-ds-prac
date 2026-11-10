@@ -6,7 +6,6 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 
-# Create Synthetic Dataset
 np.random.seed(42)
 n_samples = 500
 age = np.random.uniform(18, 80, n_samples)
@@ -21,7 +20,6 @@ df11 = pd.DataFrame({
     'age': np.round(age, 1)
 })
 
-# Prepare Regression Data
 dep = df11.drop(columns=['age'])
 indep = df11['age']
 
@@ -31,7 +29,6 @@ scaler_reg = StandardScaler()
 dep_train_sc = scaler_reg.fit_transform(dep_train)
 dep_test_sc = scaler_reg.transform(dep_test)
 
-# Fit and Evaluate Linear Regression
 model_reg = LinearRegression()
 model_reg.fit(dep_train_sc, indep_train)
 
